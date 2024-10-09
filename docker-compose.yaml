@@ -1,0 +1,21 @@
+services:
+  mssql:
+    # image: "mcr.microsoft.com/mssql/server:2022-latest"
+    image: custom-mssql:v1
+    container_name: mssqlserver
+    restart: always
+    hostname: mssql
+    user: root
+    environment:
+      SA_PASSWORD: pw_123123
+      ACCEPT_EULA: Y
+      MSSQL_PID: Express
+
+    volumes:
+      - ./mssqlvolume:/var/opt/mssql/data
+      - ./backup:/var/opt/mssql/backup
+    ports:
+      - "1433:1433"
+    # command: curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+
+
