@@ -1,7 +1,7 @@
 services:
   mssql:
     # image: "mcr.microsoft.com/mssql/server:2022-latest"
-    image: custom-mssql:v1
+    image: trongminhjr/custom-mssql:v1
     container_name: mssqlserver
     restart: always
     hostname: mssql
